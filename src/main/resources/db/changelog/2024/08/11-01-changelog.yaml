@@ -1,0 +1,103 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1723390183084-1
+      author: isgender (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  autoIncrement: true
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: pk_locations
+                  name: id
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: status_id
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: city
+                  type: VARCHAR(255)
+              - column:
+                  constraints:
+                    nullable: false
+                  name: country
+                  type: VARCHAR(255)
+              - column:
+                  constraints:
+                    nullable: false
+                  name: street_address
+                  type: VARCHAR(255)
+            tableName: Locations
+  - changeSet:
+      id: 1723390183084-2
+      author: isgender (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  autoIncrement: true
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: pk_statuses
+                  name: id
+                  type: BIGINT
+              - column:
+                  name: name
+                  type: VARCHAR(255)
+            tableName: Statuses
+  - changeSet:
+      id: 1723390183084-3
+      author: isgender (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  autoIncrement: true
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: pk_typesofwarehouse
+                  name: id
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: status_id
+                  type: BIGINT
+              - column:
+                  name: name
+                  type: VARCHAR(255)
+            tableName: TypesOfWarehouse
+  - changeSet:
+      id: 1723390183084-4
+      author: isgender (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: status_id
+            baseTableName: Locations
+            constraintName: FK_LOCATIONS_ON_STATUS
+            referencedColumnNames: id
+            referencedTableName: Statuses
+  - changeSet:
+      id: 1723390183084-5
+      author: isgender (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: status_id
+            baseTableName: TypesOfWarehouse
+            constraintName: FK_TYPESOFWAREHOUSE_ON_STATUS
+            referencedColumnNames: id
+            referencedTableName: Statuses
+

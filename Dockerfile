@@ -22,7 +22,7 @@ COPY src src
 RUN gradle build -x test --no-daemon
 
 # Stage 2: Create the runtime image
-FROM amazoncorretto:19
+FROM amazoncorretto:17
 WORKDIR app
 COPY --from=BUILD /home/gradle/build/libs/*.jar app.jar
 ENTRYPOINT ["java", "-jar", "app.jar"]

@@ -1,15 +1,10 @@
 spring:
   datasource:
-    url: jdbc:sqlserver://${DB_HOST};databaseName=${DB_NAME};encrypt=true;trustServerCertificate=true;
+    url: jdbc:mysql://${DB_HOST}/${DB_NAME}
     username: ${DB_USERNAME}
     password: ${DB_PASSWORD}
+    driver-class-name: com.mysql.cj.jdbc.Driver
 
-  thymeleaf:
-    mode: LEGACYHTML5
-
-  liquibase:
-    change-log: db/changelog/master-changelog.xml
-    enabled: true
 
   jpa:
     hibernate:
@@ -18,50 +13,13 @@ spring:
       ddl-auto: validate
     properties:
       hibernate:
+        dialect: org.hibernate.dialect.MySQLDialect
         show_sql: false
         format_sql: true
         generate_statistics: false
-  mvc:
-    format:
-      date: yyyy-MM-dd
-      date-time: yyyy-MM-dd HH:mm:ss
-      time: HH:mm:ss
-
-springdoc:
-  swagger-ui:
-    tagsSorter: alpha
-
-jwt-variables:
-  KEY: ${JWT_KEY:8ad40ec8-e0f2-4450-97e2-4bd3ef3d59d7}
-  ISSUER: ${JWT_ISSUER:Apertech}
-
-file-service:
-  base-url: ${FILE_SERVICE_BASE_URL:localhost}
-
-server:
-  port: ${PORT:8090}
 
 
-logging:
-  level:
-    org:
-      hibernate:
-        persister:
-          entity: error
-
-      springframework:
-        web:
-          client:
-            RestTemplate: DEBUG
-    root: info
-
-kafka:
-  bootstrap-servers: ${KAFKA_BOOTSTRAP_SERVERS:localhost:9092}
-  log-topic-name: ${KAFKA_TOPIC_NAME:sola-logs}
-  mail-topic-name: ${PROD_MAIL_TOPIC:prod-mail-topic}
-
-kafkamail:
-  host: ${KAFKA_MAIL_HOST:45.67.216.151}
-  port: ${KAFKA_MAIL_PORT:5174}
-
-isProd: true
+  liquibase:
+    change-log: classpath:db/changelog/master-changelog.yaml
+    parameters:
+      searchPath: classpath:/, db/changelog/
