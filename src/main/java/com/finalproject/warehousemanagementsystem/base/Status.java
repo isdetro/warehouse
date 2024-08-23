@@ -20,4 +20,5 @@ public class Status {
 
     @Column(name = "name")
     String name;
+
 }

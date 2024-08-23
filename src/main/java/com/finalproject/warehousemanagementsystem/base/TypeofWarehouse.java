@@ -15,4 +15,5 @@ import lombok.experimental.FieldDefaults;
 public class TypeofWarehouse extends BaseEntityAudit {
 
     String name;
+
 }
