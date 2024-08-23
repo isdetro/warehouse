@@ -1,0 +1,72 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1
+      author: thisisdetroit
+      changes:
+        - createTable:
+            tableName: Products
+            columns:
+              - column:
+                  name: id
+                  type: BIGINT
+                  autoIncrement: true
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: pk_product
+              - column:
+                  name: status_id
+                  type: BIGINT
+                  constraints:
+                    nullable: false
+              - column:
+                  name: name
+                  type: NVARCHAR(255)
+                  constraints:
+                    nullable: false
+
+              - column:
+                  name: purchase_price
+                  type: DECIMAL(15,2)
+                  constraints:
+                    nullable: false
+
+              - column:
+                  name: selling_price
+                  type: DECIMAL(15,2)
+                  constraints:
+                    nullable: false
+
+              - column:
+                  name: subcategory_id
+                  type: BIGINT
+                  constraints:
+                    nullable: false
+
+              - column:
+                  name: warehouse_id
+                  type: BIGINT
+
+
+
+  - changeSet:
+       id: 2
+       author: thisisdetroit
+       changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: subcategory_id
+            baseTableName: Products
+            constraintName: FK_ProductId_CategoryId
+            referencedColumnNames: id
+            referencedTableName: Categories
+
+  - changeSet:
+      id: 3
+      author: thisisdetroit
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: warehouse_id
+            baseTableName: Products
+            constraintName: FK_ProductId_WarehouseId
+            referencedColumnNames: id
+            referencedTableName: Warehouses
