@@ -17,6 +17,8 @@ import java.math.BigDecimal;
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class ProductIUDRequest {
 
+    Long id;
+
     @NotNullAndNotBlank(message = Messages.NAME_NOT_NULL_MESSAGE)
     String name;
     @NotNull(message = "Purchase Price " + Messages.NOT_NULL_MESSAGE)

@@ -15,6 +15,8 @@ import lombok.experimental.FieldDefaults;
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class CategoryIUDRequest {
 
+    Long id;
+
     @NotNullAndNotBlank(message = Messages.NAME_NOT_NULL_MESSAGE)
     String name;
     Long parentCategoryId;

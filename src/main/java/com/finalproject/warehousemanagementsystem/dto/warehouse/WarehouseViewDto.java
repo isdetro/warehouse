@@ -1,20 +1,19 @@
 package com.finalproject.warehousemanagementsystem.dto.warehouse;
 
-import lombok.AccessLevel;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import com.finalproject.warehousemanagementsystem.dto.base.BaseViewDto;
+import lombok.*;
 import lombok.experimental.FieldDefaults;
 
-@Data
+@Getter
+@Setter
+@ToString
 @AllArgsConstructor
 @NoArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE)
-public class WarehouseIUDRequest {
-    Long id;
+public class WarehouseViewDto extends BaseViewDto {
+
     String name;
     String address;
-    Long typeId;
-    Long statusId;
+    String typeName;
 
 }

@@ -15,8 +15,12 @@ import lombok.experimental.FieldDefaults;
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class TypeOfWarehouseIUDRequest {
 
+    Long id;
+
     @NotNullAndNotBlank(message = Messages.NAME_NOT_NULL_MESSAGE)
     String name;
+
     @NotNull(message = Messages.STATUS_NOT_NULL_MESSAGE)
     Long statusId;
+
 }

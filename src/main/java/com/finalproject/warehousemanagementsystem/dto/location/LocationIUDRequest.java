@@ -16,6 +16,8 @@ import lombok.experimental.FieldDefaults;
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class LocationIUDRequest {
 
+    Long id;
+
     @NotNullAndNotBlank(message = "City " + Messages.NOT_NULL_MESSAGE)
     String city;
     @NotNullAndNotBlank(message = "Country " + Messages.NOT_NULL_MESSAGE)

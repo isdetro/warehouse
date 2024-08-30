@@ -16,6 +16,8 @@ import lombok.experimental.FieldDefaults;
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class StatusIUDRequest {
 
+    Long id;
+
     @NotNullAndNotBlank(message = Messages.NAME_NOT_NULL_MESSAGE)
     String name;
 
