@@ -1,8 +1,11 @@
 package com.finalproject.warehousemanagementsystem.startup;
 
 import com.finalproject.warehousemanagementsystem.base.Status;
+import com.finalproject.warehousemanagementsystem.base.TypeofWarehouse;
 import com.finalproject.warehousemanagementsystem.base.baseEnums.Statuses;
+import com.finalproject.warehousemanagementsystem.base.baseEnums.TypeOfWarehouses;
 import com.finalproject.warehousemanagementsystem.repository.StatusRepository;
+import com.finalproject.warehousemanagementsystem.repository.TypeOfWarehouseRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
@@ -13,17 +16,20 @@ import java.util.List;
 public class DataInitializer implements CommandLineRunner {
 
     private final StatusRepository statusRepository;
+    private final TypeOfWarehouseRepository typeOfWarehouseRepository;
 
-    public DataInitializer(StatusRepository statusRepository) {
+    public DataInitializer(StatusRepository statusRepository, TypeOfWarehouseRepository typeOfWarehouseRepository) {
         this.statusRepository = statusRepository;
+        this.typeOfWarehouseRepository = typeOfWarehouseRepository;
     }
 
     @Override
     public void run(String... args) throws Exception {
         setStatuses();
+        setTypesOfWarehouses();
     }
 
-    public void setStatuses() {
+    private void setStatuses() {
         List<Status> statuses = statusRepository.findAll();
         if (statuses.isEmpty() || statuses.size() < 2) {
             statusRepository.deleteAll();
@@ -32,4 +38,16 @@ public class DataInitializer implements CommandLineRunner {
             });
         }
     }
+
+    private void setTypesOfWarehouses() {
+        List<TypeofWarehouse> typeofWarehouses = typeOfWarehouseRepository.findAll();
+        if (typeofWarehouses.isEmpty() || typeofWarehouses.size() < 3) {
+            typeOfWarehouseRepository.deleteAll();
+            Arrays.stream(TypeOfWarehouses.values()).forEach(x -> {
+                typeOfWarehouseRepository.save(new TypeofWarehouse(x.getId(),x.getName(), Statuses.ACTIVE.getId()));
+            });
+        }
+    }
+
+
 }

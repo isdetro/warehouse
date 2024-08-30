@@ -16,4 +16,10 @@ public class TypeofWarehouse extends BaseEntityAudit {
 
     String name;
 
+    public TypeofWarehouse(Long id, String name, Long statusId) {
+        super.setId(id);
+        super.setStatusId(statusId);
+        this.name = name;
+    }
+
 }
