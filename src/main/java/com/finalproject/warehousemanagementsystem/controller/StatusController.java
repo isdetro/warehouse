@@ -3,6 +3,8 @@ package com.finalproject.warehousemanagementsystem.controller;
 import com.finalproject.warehousemanagementsystem.base.Status;
 import com.finalproject.warehousemanagementsystem.dto.status.StatusViewDto;
 import com.finalproject.warehousemanagementsystem.service.StatusService;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,12 +23,16 @@ public class StatusController {
     }
 
     @GetMapping
-    public List<StatusViewDto> getStatus(){
-        return statusService.getAllStatus();
+    public ResponseEntity<List<StatusViewDto>> getStatus(){
+       List<StatusViewDto> list = statusService.getAllStatus();
+       if(list == null || list.isEmpty()){ return new ResponseEntity<>(HttpStatus.NO_CONTENT); }
+        return new ResponseEntity<>(list, HttpStatus.OK);
     }
 
     @GetMapping("/{id}")
-    public StatusViewDto getStatus(@PathVariable Long id){
-        return statusService.getStatus(id);
+    public ResponseEntity<StatusViewDto> getStatus(@PathVariable Long id){
+        StatusViewDto statusViewDto = statusService.getStatus(id);
+        if(statusViewDto == null){ return new ResponseEntity<>(HttpStatus.NOT_FOUND); }
+        return new ResponseEntity<>(statusViewDto, HttpStatus.OK);
     }
 }
