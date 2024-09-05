@@ -22,7 +22,7 @@ databaseChangeLog:
                   constraints:
                     nullable: false
                   name: name
-                  type: NVARCHAR(255)
+                  type: VARCHAR(255)
               - column:
                   constraints:
                     nullable: true

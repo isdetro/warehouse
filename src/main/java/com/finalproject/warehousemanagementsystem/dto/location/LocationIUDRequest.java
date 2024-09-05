@@ -2,8 +2,8 @@ package com.finalproject.warehousemanagementsystem.dto.location;
 
 import com.finalproject.warehousemanagementsystem.util.Messages;
 import com.finalproject.warehousemanagementsystem.util.NotNullAndNotBlank;
-import jakarta.persistence.Column;
-import jakarta.validation.constraints.NotNull;
+import javax.persistence.Column;
+import javax.validation.constraints.NotNull;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Data;

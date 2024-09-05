@@ -10,8 +10,9 @@ import lombok.experimental.FieldDefaults;
 @AllArgsConstructor
 @NoArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE)
-public class StatusViewDto extends BaseViewDto {
+public class StatusViewDto  {
 
+    Long id;
     String name;
 
 }

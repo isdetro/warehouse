@@ -21,7 +21,7 @@ databaseChangeLog:
                     nullable: false
               - column:
                   name: name
-                  type: NVARCHAR(255)
+                  type: VARCHAR(255)
                   constraints:
                     nullable: false
 

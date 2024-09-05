@@ -1,6 +1,7 @@
 package com.finalproject.warehousemanagementsystem.controller;
 
 import com.finalproject.warehousemanagementsystem.base.Status;
+import com.finalproject.warehousemanagementsystem.dto.status.StatusViewDto;
 import com.finalproject.warehousemanagementsystem.service.StatusService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -20,12 +21,12 @@ public class StatusController {
     }
 
     @GetMapping
-    public List<Status> getStatus(){
+    public List<StatusViewDto> getStatus(){
         return statusService.getAllStatus();
     }
 
     @GetMapping("/{id}")
-    public Status getStatus(@PathVariable Long id){
+    public StatusViewDto getStatus(@PathVariable Long id){
         return statusService.getStatus(id);
     }
 }

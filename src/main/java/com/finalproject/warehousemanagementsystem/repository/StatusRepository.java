@@ -1,7 +1,7 @@
 package com.finalproject.warehousemanagementsystem.repository;
 
+import com.beyt.jdq.repository.JpaDynamicQueryRepository;
 import com.finalproject.warehousemanagementsystem.base.Status;
-import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface StatusRepository extends JpaRepository<Status, Long> {
+public interface StatusRepository extends JpaDynamicQueryRepository<Status, Long> {
 }

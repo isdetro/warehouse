@@ -2,7 +2,7 @@ package com.finalproject.warehousemanagementsystem.model;
 
 import com.finalproject.warehousemanagementsystem.base.BaseEntityAudit;
 import com.finalproject.warehousemanagementsystem.base.TypeofWarehouse;
-import jakarta.persistence.*;
+import javax.persistence.*;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 import org.hibernate.annotations.Nationalized;
@@ -16,11 +16,9 @@ import org.hibernate.annotations.Nationalized;
 @Setter
 public class Warehouse extends BaseEntityAudit {
 
-    @Nationalized
     @Column(nullable = false)
     String name;
 
-    @Nationalized
     @Column(nullable = false)
     String address;
 

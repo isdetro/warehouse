@@ -20,12 +20,12 @@ databaseChangeLog:
                   type: BIGINT
               - column:
                   name: name
-                  type: NVARCHAR(255)
+                  type: VARCHAR(255)
                   constraints:
                     nullable: false
               - column:
                   name: address
-                  type: NVARCHAR(255)
+                  type: VARCHAR(255)
                   constraints:
                     nullable: false
 

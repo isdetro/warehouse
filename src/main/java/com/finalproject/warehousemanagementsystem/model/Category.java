@@ -1,7 +1,7 @@
 package com.finalproject.warehousemanagementsystem.model;
 
 import com.finalproject.warehousemanagementsystem.base.BaseEntityAudit;
-import jakarta.persistence.*;
+import javax.persistence.*;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 import org.hibernate.annotations.Nationalized;
@@ -15,7 +15,6 @@ import org.hibernate.annotations.Nationalized;
 @Setter
 public class Category extends BaseEntityAudit {
 
-    @Nationalized
     @Column(name = "name", nullable = false)
     String name;
 

@@ -2,7 +2,7 @@ package com.finalproject.warehousemanagementsystem.dto.category;
 
 import com.finalproject.warehousemanagementsystem.util.Messages;
 import com.finalproject.warehousemanagementsystem.util.NotNullAndNotBlank;
-import jakarta.validation.constraints.NotNull;
+import javax.validation.constraints.NotNull;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Data;

@@ -1,7 +1,7 @@
 package com.finalproject.warehousemanagementsystem.dto.product;
 
 import com.finalproject.warehousemanagementsystem.dto.base.BaseViewDto;
-import jakarta.persistence.Column;
+import javax.persistence.Column;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 

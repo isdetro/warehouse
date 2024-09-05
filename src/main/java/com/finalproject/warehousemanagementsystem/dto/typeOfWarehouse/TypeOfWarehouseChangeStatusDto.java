@@ -3,7 +3,7 @@ package com.finalproject.warehousemanagementsystem.dto.typeOfWarehouse;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.finalproject.warehousemanagementsystem.util.LongDeserializer;
 import com.finalproject.warehousemanagementsystem.util.Messages;
-import jakarta.validation.constraints.NotNull;
+import javax.validation.constraints.NotNull;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 
