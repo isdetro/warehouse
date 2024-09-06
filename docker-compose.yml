@@ -1,16 +1,54 @@
 services:
+  warehouse-management-system:
+    image: mysql:8.0
+    environment:
+      MYSQL_DATABASE: warehouse
+      MYSQL_USER: root
+      MYSQL_PASSWORD: root1997
+      MYSQL_ROOT_PASSWORD: root1997
+    ports:
+      - "3307:3306"  # Exposing MySQL on host port 3307
+    volumes:
+      - db:/var/lib/mysql
+    networks:
+      - app-network
+
   app:
     build: .
     image: warehouse-management-system-image-8090
     container_name: warehouse-management-system-8090
     restart: always
-    network_mode: bridge
+    networks:
+      - app-network
+    volumes:
+      - db:/var/lib/mysql
     ports:
-      - "8091:8090"
+      - "8090:8090"
+    depends_on:
+      - warehouse-management-system
     environment:
-      - PORT=8091
-      - DB_HOST=localhost
+      - PORT=8090
+      - DB_HOST=warehouse-management-system:3306  # Use the service name and internal MySQL port
       - DB_NAME=warehouse
       - DB_USERNAME=root
       - DB_PASSWORD=root1997
       - DATABASE=mysql
+
+  redis:
+    container_name: redis-01
+    image: redis:latest
+    ports:
+      - "6379:6379"
+    volumes:
+      - db:/var/lib/redis
+    networks:
+      - app-network
+    depends_on:
+      - warehouse-management-system
+
+volumes:
+  db: {}
+
+networks:
+  app-network:
+    driver: bridge

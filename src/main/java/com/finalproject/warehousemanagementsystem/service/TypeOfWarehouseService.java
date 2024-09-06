@@ -2,7 +2,6 @@ package com.finalproject.warehousemanagementsystem.service;
 
 import com.finalproject.warehousemanagementsystem.base.TypeofWarehouse;
 import com.finalproject.warehousemanagementsystem.dto.typeOfWarehouse.TypeOfWarehouseChangeStatusDto;
-import com.finalproject.warehousemanagementsystem.dto.typeOfWarehouse.TypeOfWarehouseIUDRequest;
 import com.finalproject.warehousemanagementsystem.repository.TypeOfWarehouseRepository;
 import org.springframework.stereotype.Service;
 
