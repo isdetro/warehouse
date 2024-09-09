@@ -1,12 +1,12 @@
 package com.finalproject.warehousemanagementsystem.repository;
 
+import com.beyt.jdq.repository.JpaDynamicQueryRepository;
 import com.finalproject.warehousemanagementsystem.base.TypeofWarehouse;
-import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.transaction.annotation.Transactional;
 
-public interface TypeOfWarehouseRepository extends JpaRepository<TypeofWarehouse, Long> {
+public interface TypeOfWarehouseRepository extends JpaDynamicQueryRepository<TypeofWarehouse, Long> {
 
     @Transactional
     @Modifying

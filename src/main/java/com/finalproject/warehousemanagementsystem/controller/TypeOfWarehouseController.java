@@ -2,6 +2,7 @@ package com.finalproject.warehousemanagementsystem.controller;
 
 import com.finalproject.warehousemanagementsystem.base.TypeofWarehouse;
 import com.finalproject.warehousemanagementsystem.dto.typeOfWarehouse.TypeOfWarehouseChangeStatusDto;
+import com.finalproject.warehousemanagementsystem.dto.typeOfWarehouse.TypeOfWarehouseViewDto;
 import com.finalproject.warehousemanagementsystem.service.TypeOfWarehouseService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -24,7 +25,7 @@ public class TypeOfWarehouseController {
     }
 
     @GetMapping("/{id}")
-    public TypeofWarehouse getTypeOfWarehouseById(@PathVariable Long id) {
+    public TypeOfWarehouseViewDto getTypeOfWarehouseById(@PathVariable Long id) {
         return typeOfWarehouseService.getById(id);
     }
 
