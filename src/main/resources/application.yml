@@ -26,3 +26,5 @@ spring:
     change-log: classpath:db/changelog/master-changelog.yaml
     parameters:
       searchPath: classpath:/, db/changelog/
+server:
+  port: 8090
