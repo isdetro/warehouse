@@ -31,7 +31,7 @@ public class StatusController {
 
     @GetMapping("/{id}")
     public ResponseEntity<StatusViewDto> getStatus(@PathVariable Long id){
-        StatusViewDto statusViewDto = statusService.getStatus(id);
+        StatusViewDto statusViewDto = statusService.getStatus2(id);
         if(statusViewDto == null){ return new ResponseEntity<>(HttpStatus.NOT_FOUND); }
         return new ResponseEntity<>(statusViewDto, HttpStatus.OK);
     }

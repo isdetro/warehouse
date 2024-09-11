@@ -27,7 +27,7 @@ services:
       - warehouse-management-system
     environment:
       - PORT=8090
-      - DB_HOST=warehouse-management-system:3306  # Use the service name and internal MySQL port
+      - DB_HOST=warehouse-management-system:3306
       - DB_NAME=warehouse
       - DB_USERNAME=root
       - DB_PASSWORD=root1997
