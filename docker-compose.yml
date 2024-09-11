@@ -32,8 +32,10 @@ services:
       - DB_USERNAME=root
       - DB_PASSWORD=root1997
       - DATABASE=mysql
+      - REDIS_HOST=redis
 
   redis:
+    hostname: redis
     container_name: redis-01
     image: redis:latest
     ports:
