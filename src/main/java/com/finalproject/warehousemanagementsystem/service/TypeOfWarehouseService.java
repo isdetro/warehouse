@@ -3,6 +3,7 @@ package com.finalproject.warehousemanagementsystem.service;
 import com.beyt.jdq.dto.Criteria;
 import com.beyt.jdq.dto.enums.CriteriaOperator;
 import com.finalproject.warehousemanagementsystem.base.TypeofWarehouse;
+import com.finalproject.warehousemanagementsystem.dto.base.ModuleKeys;
 import com.finalproject.warehousemanagementsystem.dto.typeOfWarehouse.TypeOfWarehouseChangeStatusDto;
 import com.finalproject.warehousemanagementsystem.dto.typeOfWarehouse.TypeOfWarehouseViewDto;
 import com.finalproject.warehousemanagementsystem.repository.TypeOfWarehouseRepository;
@@ -29,7 +30,7 @@ public class TypeOfWarehouseService {
     }
 
     public TypeOfWarehouseViewDto getById(Long id) {
-        Cache cache = cacheManager.getCache("typewarehouse");
+        Cache cache = cacheManager.getCache(ModuleKeys.TYPE_OF_WAREHOUSE.getName());
         TypeOfWarehouseViewDto typeOfWarehouseViewDto = cache.get(id, TypeOfWarehouseViewDto.class);
         if (typeOfWarehouseViewDto != null) {
             log.info(Messages.DATA_FROM_CACHE_MESSAGE);

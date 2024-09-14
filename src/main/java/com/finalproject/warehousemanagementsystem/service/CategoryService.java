@@ -4,6 +4,7 @@ import com.beyt.jdq.dto.Criteria;
 import com.beyt.jdq.dto.CriteriaList;
 import com.beyt.jdq.dto.DynamicQuery;
 import com.beyt.jdq.dto.enums.CriteriaOperator;
+import com.finalproject.warehousemanagementsystem.dto.base.ModuleKeys;
 import com.finalproject.warehousemanagementsystem.dto.base.RedisKeyDto;
 import com.finalproject.warehousemanagementsystem.dto.category.CategoryIUDRequest;
 import com.finalproject.warehousemanagementsystem.dto.category.CategoryJdqViewDto;
@@ -39,7 +40,7 @@ public class CategoryService {
     public CategoryJdqViewDto getById(Long id) {
         RedisKeyDto redisKeyDto = new RedisKeyDto();
         redisKeyDto.setId(id);
-        redisKeyDto.setKey("category");
+        redisKeyDto.setKey(ModuleKeys.CATEGORY.getName());
 
         CategoryJdqViewDto categoryJdqViewDto =
                 (CategoryJdqViewDto) redisTemplate.opsForValue().get(redisKeyDto.toString());
@@ -80,7 +81,7 @@ public class CategoryService {
                 Long id = save(categoryMapper.fromIUDRequestToDbo(categoryIUDRequest));
 
                 RedisKeyDto redisKeyDto = new RedisKeyDto();
-                redisKeyDto.setKey("category");
+                redisKeyDto.setKey(ModuleKeys.CATEGORY.getName());
                 redisKeyDto.setId(id);
 
               CategoryJdqViewDto categoryJdqViewDto =

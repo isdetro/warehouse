@@ -2,6 +2,7 @@ package com.finalproject.warehousemanagementsystem.service;
 
 import com.beyt.jdq.dto.Criteria;
 import com.beyt.jdq.dto.enums.CriteriaOperator;
+import com.finalproject.warehousemanagementsystem.dto.base.ModuleKeys;
 import com.finalproject.warehousemanagementsystem.dto.base.RedisKeyDto;
 import com.finalproject.warehousemanagementsystem.dto.status.StatusViewDto;
 import com.finalproject.warehousemanagementsystem.repository.StatusRepository;
@@ -59,7 +60,7 @@ public class StatusService {
     public StatusViewDto getById(Long id) {
         RedisKeyDto redisKeyDto = new RedisKeyDto();
         redisKeyDto.setId(id);
-        redisKeyDto.setKey("status");
+        redisKeyDto.setKey(ModuleKeys.STATUS.getName());
 
 
         StatusViewDto statusViewDto =

@@ -4,6 +4,7 @@ import com.beyt.jdq.dto.Criteria;
 import com.beyt.jdq.dto.CriteriaList;
 import com.beyt.jdq.dto.DynamicQuery;
 import com.beyt.jdq.dto.enums.CriteriaOperator;
+import com.finalproject.warehousemanagementsystem.dto.base.ModuleKeys;
 import com.finalproject.warehousemanagementsystem.dto.base.RedisKeyDto;
 import com.finalproject.warehousemanagementsystem.dto.location.LocationIUDRequest;
 import com.finalproject.warehousemanagementsystem.dto.location.LocationJdqViewDto;
@@ -47,7 +48,7 @@ public class LocationService {
 
     public LocationJdqViewDto getById(Long id) {
         RedisKeyDto redisKeyDto = new RedisKeyDto();
-        redisKeyDto.setKey("location");
+        redisKeyDto.setKey(ModuleKeys.LOCATION.getName());
         redisKeyDto.setId(id);
 
         LocationJdqViewDto locationJdqViewDto =
@@ -81,7 +82,7 @@ public class LocationService {
                 Long id = save(locationMapper.fromIUDRequestToDbo(iudRequest));
 
                 RedisKeyDto redisKeyDto = new RedisKeyDto();
-                redisKeyDto.setKey("location");
+                redisKeyDto.setKey(ModuleKeys.LOCATION.getName());
                 redisKeyDto.setId(id);
 
                 LocationJdqViewDto locationJdqViewDto =
