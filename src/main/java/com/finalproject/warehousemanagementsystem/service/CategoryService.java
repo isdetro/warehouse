@@ -89,12 +89,10 @@ public class CategoryService {
               if (categoryJdqViewDto != null) {
                   log.info(Messages.UPDATE_CACHE_DATA_MESSAGE);
                   redisTemplate.delete(redisKeyDto.toString());
-                  CategoryJdqViewDto categoryJdqViewDtoNew = getById(categoryIUDRequest.getId());
-                  redisTemplate.opsForValue().set(redisKeyDto.toString(), categoryJdqViewDtoNew);
               }
-              else {
-                  redisTemplate.opsForValue().set(redisKeyDto.toString(), categoryIUDRequest);
-              }
+
+              CategoryJdqViewDto categoryJdqViewDtoNew = getById(id);
+              redisTemplate.opsForValue().set(redisKeyDto.toString(), categoryJdqViewDtoNew);
             }
         }
 
