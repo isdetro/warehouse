@@ -20,12 +20,12 @@ public class CategoryController {
 
     @GetMapping
     public ResponseEntity<List<CategoryJdqViewDto>> getAllCategories() {
-        return ResponseEntity.ok(categoryService.getAllCategories());
+        return ResponseEntity.ok(categoryService.getAll());
     }
 
     @GetMapping("/{id}")
     public ResponseEntity<CategoryJdqViewDto> getCategoryById(@PathVariable Long id) {
-        return ResponseEntity.ok(categoryService.getCategoryById(id));
+        return ResponseEntity.ok(categoryService.getById(id));
     }
 
     @PostMapping

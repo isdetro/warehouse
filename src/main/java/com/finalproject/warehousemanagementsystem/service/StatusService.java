@@ -7,12 +7,10 @@ import com.finalproject.warehousemanagementsystem.dto.status.StatusViewDto;
 import com.finalproject.warehousemanagementsystem.repository.StatusRepository;
 import com.finalproject.warehousemanagementsystem.util.Messages;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.cache.Cache;
 import org.springframework.cache.CacheManager;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDateTime;
 import java.util.List;
 
 import static com.beyt.jdq.query.builder.QuerySimplifier.Select;
@@ -25,7 +23,11 @@ public class StatusService {
     private final CacheManager cacheManager;
     private final RedisTemplate<String, Object> redisTemplate;
 
-    public StatusService(StatusRepository statusRepository, CacheManager cacheManager, RedisTemplate<String, Object> redisTemplate) {
+    public StatusService(
+            StatusRepository statusRepository,
+            CacheManager cacheManager,
+            RedisTemplate<String, Object> redisTemplate
+    ) {
         this.statusRepository = statusRepository;
         this.cacheManager = cacheManager;
         this.redisTemplate = redisTemplate;
@@ -54,13 +56,14 @@ public class StatusService {
 //        return null;
 //    }
 
-    public StatusViewDto getStatus2(Long id) {
+    public StatusViewDto getById(Long id) {
         RedisKeyDto redisKeyDto = new RedisKeyDto();
         redisKeyDto.setId(id);
         redisKeyDto.setKey("status");
 
 
-        StatusViewDto statusViewDto = (StatusViewDto) redisTemplate.opsForValue().get(redisKeyDto.toString());
+        StatusViewDto statusViewDto =
+                (StatusViewDto) redisTemplate.opsForValue().get(redisKeyDto.toString());
         if (statusViewDto != null) {
             log.info(Messages.DATA_FROM_CACHE_MESSAGE);
             return statusViewDto;
@@ -81,7 +84,7 @@ public class StatusService {
         return null;
     }
 
-    public List<StatusViewDto> getAllStatus() {
+    public List<StatusViewDto> getAll() {
         var list = statusRepository
                 .queryBuilder()
                 .select(

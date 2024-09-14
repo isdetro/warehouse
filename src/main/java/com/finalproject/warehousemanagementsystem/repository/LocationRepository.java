@@ -1,7 +1,8 @@
 package com.finalproject.warehousemanagementsystem.repository;
 
+import com.beyt.jdq.repository.JpaDynamicQueryRepository;
 import com.finalproject.warehousemanagementsystem.model.Location;
-import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface LocationRepository extends JpaRepository<Location, Long> {
+
+public interface LocationRepository extends JpaDynamicQueryRepository<Location, Long> {
 }

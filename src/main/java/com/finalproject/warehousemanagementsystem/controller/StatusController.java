@@ -1,6 +1,5 @@
 package com.finalproject.warehousemanagementsystem.controller;
 
-import com.finalproject.warehousemanagementsystem.base.Status;
 import com.finalproject.warehousemanagementsystem.dto.status.StatusViewDto;
 import com.finalproject.warehousemanagementsystem.service.StatusService;
 import org.springframework.http.HttpStatus;
@@ -24,14 +23,14 @@ public class StatusController {
 
     @GetMapping
     public ResponseEntity<List<StatusViewDto>> getStatus(){
-       List<StatusViewDto> list = statusService.getAllStatus();
+       List<StatusViewDto> list = statusService.getAll();
        if(list == null || list.isEmpty()){ return new ResponseEntity<>(HttpStatus.NO_CONTENT); }
         return new ResponseEntity<>(list, HttpStatus.OK);
     }
 
     @GetMapping("/{id}")
     public ResponseEntity<StatusViewDto> getStatus(@PathVariable Long id){
-        StatusViewDto statusViewDto = statusService.getStatus2(id);
+        StatusViewDto statusViewDto = statusService.getById(id);
         if(statusViewDto == null){ return new ResponseEntity<>(HttpStatus.NOT_FOUND); }
         return new ResponseEntity<>(statusViewDto, HttpStatus.OK);
     }
