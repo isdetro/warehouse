@@ -21,5 +21,5 @@ public class CategoryIUDRequest {
     String name;
     Long parentCategoryId;
     @NotNull(message = Messages.STATUS_NOT_NULL_MESSAGE)
-    Long statusId;
+    Long statusId = 1L;
 }
