@@ -1,11 +1,12 @@
 package com.finalproject.warehousemanagementsystem.dto.product;
 
 import com.finalproject.warehousemanagementsystem.dto.base.BaseViewDto;
-import javax.persistence.Column;
+
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 
 import java.math.BigDecimal;
+import java.util.List;
 
 @Getter
 @Setter
@@ -19,6 +20,6 @@ public class ProductViewDto extends BaseViewDto {
     BigDecimal purchasePrice;
     BigDecimal sellingPrice;
     String subcategoryName;
-    String warehouseName;
+    List<String> warehouseNameList;
 
 }

@@ -5,7 +5,6 @@ import com.finalproject.warehousemanagementsystem.base.TypeofWarehouse;
 import javax.persistence.*;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
-import org.hibernate.annotations.Nationalized;
 
 @Entity
 @Table(name = "Warehouses")

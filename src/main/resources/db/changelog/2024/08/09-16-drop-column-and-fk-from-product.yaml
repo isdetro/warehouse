@@ -1,0 +1,15 @@
+databaseChangeLog:
+  - changeSet:
+      author: thisisdetroit
+      id: 1
+      changes:
+        - dropForeignKeyConstraint:
+            constraintName: FK_ProductId_WarehouseId
+            baseTableName: Products
+  - changeSet:
+      author: thisisdetroit
+      id: 2
+      changes:
+        - dropColumn:
+            columnName: warehouse_id
+            tableName: Products

@@ -28,14 +28,8 @@ public class Product extends BaseEntityAudit {
     @Column(name = "subcategory_id", nullable = false )
     Long subcategoryId;
 
-    @Column(name = "warehouse_id")
-    Long warehouseId;
-
     @ManyToOne
     @JoinColumn(name = "subcategory_id", nullable = false, insertable = false, updatable = false)
     Category category;
 
-    @ManyToOne
-    @JoinColumn(name = "warehouse_id", insertable = false, updatable = false)
-    Warehouse warehouse;
 }

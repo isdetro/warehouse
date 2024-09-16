@@ -27,8 +27,6 @@ public class ProductIUDRequest {
     BigDecimal sellingPrice;
     @NotNull(message = "Subcategory " + Messages.NOT_NULL_MESSAGE)
     Long subcategoryId;
-    @NotNull(message = "Warehouse " + Messages.NOT_NULL_MESSAGE)
-    Long warehouseId;
     @NotNull(message = Messages.STATUS_NOT_NULL_MESSAGE)
     Long statusId;
 }
