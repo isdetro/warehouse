@@ -4,7 +4,6 @@ import com.finalproject.warehousemanagementsystem.base.BaseEntityAudit;
 import javax.persistence.*;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
-import org.hibernate.annotations.Nationalized;
 
 import java.math.BigDecimal;
 
