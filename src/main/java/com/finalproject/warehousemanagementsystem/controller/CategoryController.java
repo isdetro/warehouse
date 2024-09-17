@@ -29,7 +29,7 @@ public class CategoryController {
     }
 
     @PostMapping
-    public ResponseEntity<Object> createCategory(@RequestBody List<CategoryIUDRequest> categoryIUDRequests) {
+    public ResponseEntity<Object> addCategory(@RequestBody List<CategoryIUDRequest> categoryIUDRequests) {
         categoryService.saveIUDRequest(categoryIUDRequests);
         return ResponseEntity.ok().build();
     }
