@@ -1,0 +1,49 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1
+      author: thisisdetroit
+      changes:
+        - createTable:
+            tableName: ProductWarehouse
+            columns:
+              - column:
+                  name: id
+                  type: BIGINT
+                  autoIncrement: true
+                  constraints:
+                    primaryKeyName: pk_productWarehouseId
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: product_id
+                  type: BIGINT
+                  constraints:
+                    nullable: false
+              - column:
+                  name: warehouse_id
+                  type: BIGINT
+                  constraints:
+                    nullable: false
+  - changeSet:
+      id: 2
+      author: thisisdetroit
+      changes:
+        - addForeignKeyConstraint:
+            baseTableName: ProductWarehouse
+            baseColumnNames: product_id
+            constraintName: FK_ProductId
+            referencedTableName: Products
+            referencedColumnNames: id
+
+  - changeSet:
+      id: 3
+      author: thisisdetroit
+      changes:
+        - addForeignKeyConstraint:
+            baseTableName: ProductWarehouse
+            baseColumnNames: warehouse_id
+            constraintName: FK_WarehouseId
+            referencedTableName: Warehouses
+            referencedColumnNames: id
+
+

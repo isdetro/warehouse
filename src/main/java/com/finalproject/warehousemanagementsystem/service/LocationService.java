@@ -16,6 +16,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -35,15 +36,6 @@ public class LocationService {
         this.locationRepository = locationRepository;
         this.locationMapper = locationMapper;
         this.redisTemplate = redisTemplate;
-    }
-
-    public List<LocationJdqViewDto> getAll() {
-        DynamicQuery dynamicQuery = new DynamicQuery();
-        List<LocationJdqViewDto> list = locationRepository.findAll(dynamicQuery, LocationJdqViewDto.class);
-        if (list != null && !list.isEmpty()) {
-            return list;
-        }
-        return new ArrayList<>();
     }
 
     public LocationJdqViewDto getById(Long id) {
@@ -71,11 +63,20 @@ public class LocationService {
         return null;
     }
 
+    public List<LocationJdqViewDto> getAll() {
+        DynamicQuery dynamicQuery = new DynamicQuery();
+        List<LocationJdqViewDto> list = locationRepository.findAll(dynamicQuery, LocationJdqViewDto.class);
+        if (list != null && !list.isEmpty()) {
+            return list;
+        }
+        return new ArrayList<>();
+    }
 
     public Long save(Location location) {
         return locationRepository.save(location).getId();
     }
 
+    @Transactional
     public void saveIUDRequest(List<LocationIUDRequest> locationIUDRequest) {
         if (locationIUDRequest != null && !locationIUDRequest.isEmpty()) {
             for (LocationIUDRequest iudRequest : locationIUDRequest) {

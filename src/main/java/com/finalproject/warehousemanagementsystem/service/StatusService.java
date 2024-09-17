@@ -35,7 +35,7 @@ public class StatusService {
     }
 
     //    public StatusViewDto getStatus(Long id) {
-//        Cache cache = cacheManager.getCache ("status");
+//        Cache cache = cacheManager.getCache (ModuleKeys.STATUS.getName());
 //        StatusViewDto statusViewDto = cache.get(id, StatusViewDto.class);
 //        if (statusViewDto != null) {
 //            log.info(Messages.DATA_FROM_CACHE_MESSAGE);

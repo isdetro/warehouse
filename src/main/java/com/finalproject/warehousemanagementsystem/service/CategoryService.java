@@ -16,6 +16,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -75,6 +76,7 @@ public class CategoryService {
         return categoryRepository.save(category).getId();
     }
 
+    @Transactional
     public void saveIUDRequest(List<CategoryIUDRequest> categoryIUDRequestList) {
         if (categoryIUDRequestList != null && !categoryIUDRequestList.isEmpty()) {
             for (CategoryIUDRequest categoryIUDRequest : categoryIUDRequestList) {
