@@ -18,8 +18,12 @@ public class Warehouse extends BaseEntityAudit {
     @Column(nullable = false)
     String name;
 
-    @Column(nullable = false)
-    String address;
+    @Column(name = "location_id",nullable = false)
+    Long locationId;
+
+    @ManyToOne
+    @JoinColumn(name = "location_id", insertable = false, updatable = false, nullable = false)
+    Location location;
 
     @Column(name = "type_id", nullable = false)
     Long typeId;

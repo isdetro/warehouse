@@ -4,6 +4,7 @@ import com.finalproject.warehousemanagementsystem.dto.base.BaseViewDto;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 
+
 @Getter
 @Setter
 @ToString
@@ -13,7 +14,9 @@ import lombok.experimental.FieldDefaults;
 public class WarehouseViewDto extends BaseViewDto {
 
     String name;
-    String address;
     String typeName;
+    String city;
+    String country;
+    String streetAddress;
 
 }
