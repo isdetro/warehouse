@@ -1,3 +1,16 @@
 databaseChangeLog:
-  - includeAll:
-      path: db/changelog/2024/08
+    - include:
+          file: db/changelog/2024/08/11-01-changelog.yaml
+    - include:
+          file: db/changelog/2024/08/21-create-table-category.yaml
+    - include:
+          file: db/changelog/2024/08/23-1-create-table-warehouse.yaml
+    - include:
+          file: db/changelog/2024/08/23-2-create-table-product.yaml
+    - include:
+          file: db/changelog/2024/09/16-drop-column-and-fk-from-product.yaml
+    - include:
+          file: db/changelog/2024/09/16-add-table-productWarehouse.yaml
+    - include:
+          file: db/changelog/2024/09/17-drop-column-and-add-to-warehouse.yaml
+
