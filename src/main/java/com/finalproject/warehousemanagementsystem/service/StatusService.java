@@ -2,6 +2,7 @@ package com.finalproject.warehousemanagementsystem.service;
 
 import com.beyt.jdq.dto.Criteria;
 import com.beyt.jdq.dto.enums.CriteriaOperator;
+import com.finalproject.warehousemanagementsystem.base.Status;
 import com.finalproject.warehousemanagementsystem.dto.base.ModuleKeys;
 import com.finalproject.warehousemanagementsystem.dto.base.RedisKeyDto;
 import com.finalproject.warehousemanagementsystem.dto.status.StatusViewDto;
@@ -83,6 +84,11 @@ public class StatusService {
             return list.get(0);
         }
         return null;
+    }
+
+    public Status getByIdStandart(Long id) {
+        return statusRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Not Found!"));
     }
 
     public List<StatusViewDto> getAll() {
